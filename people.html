@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>User Directory</h1>
+        <hr id="edit1">
+        <nav>
+            <ul style="display: flex; list-style: none; padding: 0; justify-content: center;">
+                <li style="margin-right: 20px;"><a href="powers.html">Powers</a></li>
+                <li><a href="people.html">Users</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="filter-bar">
+        <input type="text" id="search" placeholder="Filter users...">
+        <select id="filter-category">
+            <option value="name">Name</option>
+        </select>
+    </section>
+    
+    <section id="user-list">
+        <!--Entry Start-->
+        <div class="user-entry">
+            <button id="user-button" onclick="toggleInfo(this)">
+                <h2 style="color: brown; font-size: 30px;">Example</h2>
+                <p style="font-size: large;">"meow"</p>
+            </button>
+            <div class="info">
+                <p style="color:green"><strong>User Allegiance:</strong> Good</p>
+                <p style="color:green"><strong>Faction:</strong> Example</p>
+                <p style="color:red"><strong>1st Power:</strong> Explode</p>
+                <p style="color:red"><strong>2nd Power:</strong> GAAAAH</p>
+                <p style="color:rgb(255, 0, 0)"><strong>Passive Power:</strong> meow</p>
+                <p style="color:yellow"><strong>Font:</strong> Comic Sans</p>
+                <hr>
+                <p>
+                    A normal user!
+                </p>
+                <hr>
+                <p style="font-size: 30px;"><strong>Theme(s):</strong></p>
+                <div class="theme-container">
+                    <p style="font-size: 20px;">Blazing Glory</p>
+                    <section class="audio-controls">
+                        <button class="play-btn" data-sound="songs/song1.mp3">Play</button>
+                        <button class="stop-btn">Stop</button>
+                        <a class="download-btn" href="songs/song1.mp3" download target="_blank" rel="noopener noreferrer">Link</a>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--Entry End-->
+
+        <!--Entry Start-->
+        <div class="user-entry">
+            <button id="user-button" onclick="toggleInfo(this)">
+                <h2 style="color: rgb(182, 65, 218); font-size: 30px;">Gilly</h2>
+                <p style="font-size: large;">"Is this really what you wanted?"</p>
+            </button>
+            <div class="info">
+                <p style="color:rgb(134, 134, 134)"><strong>User Allegiance:</strong> Neutral</p>
+                <p style="color:rgb(92, 0, 128)"><strong>Faction:</strong> Silly Industries</p>
+                <p style="color:red"><strong>1st Power:</strong> Change/<strong style="color: blueviolet;">Chaos</strong></p>
+                <p style="color:rgb(162, 0, 255)"><strong>2nd Power:</strong> Dodging/<strong style="color: rgb(94, 1, 182);">Warping</strong></p>
+                <p style="color:rgb(255, 0, 0)"><strong>Passive Power:</strong> Anarchy</p>
+                <p style="color:yellow"><strong>Font:</strong> Comic Sans</p>
+                <hr>
+                <p>
+                    The silliest one, loves predicting enemies. Can be struck down with 1 hit.
+                </p>
+                <hr>
+                <p style="font-size: 30px;"><strong>Theme(s):</strong></p>
+                <div class="theme-container">
+                    <p style="font-size: 20px;">Change the World</p>
+                    <section class="audio-controls">
+                        <button class="play-btn" data-sound="songs/Gilly/song1.mp3">Play</button>
+                        <button class="stop-btn">Stop</button>
+                        <a class="download-btn" href="https://www.youtube.com/watch?v=GZfW5dlkq60" download target="_blank" rel="noopener noreferrer">Link</a>
+                    </section>
+                    <hr>
+                    <p style="font-size: 20px;">No Other Way</p>
+                    <section class="audio-controls">
+                        <button class="play-btn" data-sound="songs/Gilly/song2.mp3">Play</button>
+                        <button class="stop-btn">Stop</button>
+                        <a class="download-btn" href="https://youtu.be/cpHBzNd0zBc" download target="_blank" rel="noopener noreferrer">Link</a>
+                    </section>
+                    <hr>
+                    <p style="font-size: 20px;">INSANITY</p>
+                    <section class="audio-controls">
+                        <button class="play-btn" data-sound="songs/Gilly/song3.mp3">Play</button>
+                        <button class="stop-btn">Stop</button>
+                        <a class="download-btn" href="https://youtu.be/y_ud2N6bHvY" download target="_blank" rel="noopener noreferrer">Link</a>
+                    </section>
+                    <hr>
+                    <p style="font-size: 20px;">Consequences</p>
+                    <section class="audio-controls">
+                        <button class="play-btn" data-sound="songs/Gilly/song4.mp3">Play</button>
+                        <button class="stop-btn">Stop</button>
+                        <a class="download-btn" href="https://youtu.be/MnfYjGF76eo" download target="_blank" rel="noopener noreferrer">Link</a>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--Entry End-->
+    </section>
+
+    <script>
+        function sortPowers() {
+            let powerList = document.getElementById("user-list");
+            let powers = Array.from(document.querySelectorAll(".user-entry"));
+            
+            powers.sort((a, b) => {
+                let nameA = a.querySelector("h2").innerText.toLowerCase();
+                let nameB = b.querySelector("h2").innerText.toLowerCase();
+                return nameA.localeCompare(nameB);
+            });
+            
+            powerList.innerHTML = "";
+            powers.forEach(power => powerList.appendChild(power));
+        }
+        
+        document.getElementById("search").addEventListener("input", filterPowers);
+        document.getElementById("filter-category").addEventListener("change", filterPowers);
+
+        function filterPowers() {
+            let query = document.getElementById("search").value.toLowerCase();
+            let category = document.getElementById("filter-category").value;
+            let powers = document.querySelectorAll(".user-entry");
+            
+            powers.forEach(power => {
+                let text = "";
+                switch (category) {
+                    case "name": text = power.querySelector("h2").innerText.toLowerCase(); break;
+                }
+                
+                power.style.display = text.includes(query) ? "block" : "none";
+            });
+        }
+
+        function toggleInfo(button) {
+            const info = button.nextElementSibling;
+            if (info.style.display === "none" || info.style.display === "") {
+                info.style.display = "block";
+                setTimeout(() => info.classList.add("show"), 10);
+            } else {
+                info.classList.remove("show");
+                setTimeout(() => info.style.display = "none", 300);
+            }
+        }
+        let currentAudio = null;
+    let fadeInterval = null;
+
+    function playSound(button, soundFile) {
+        if (currentAudio) {
+            stopSound(true); // Fade out previous sound before playing new one
+        }
+
+        currentAudio = new Audio(soundFile);
+        currentAudio.volume = 0;
+        currentAudio.play();
+
+        // Change play button color
+        document.querySelectorAll(".play-btn").forEach(btn => btn.classList.remove("playing"));
+        button.classList.add("playing");
+
+        // Smooth fade in
+        let volume = 0;
+        fadeInterval = setInterval(() => {
+            if (volume < 1) {
+                volume += 0.05;
+                currentAudio.volume = Math.min(volume, 1);
+            } else {
+                clearInterval(fadeInterval);
+            }
+        }, 100);
+    }
+
+    function stopSound(immediate = false) {
+        if (currentAudio) {
+            clearInterval(fadeInterval); // Stop any ongoing fade-in
+
+            let stopButton = document.querySelector(".stop-btn");
+            stopButton.classList.add("stopped");
+            setTimeout(() => stopButton.classList.remove("stopped"), 500); // Remove color after 0.5s
+
+            if (immediate) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                currentAudio = null;
+            } else {
+                // Smooth fade out
+                let volume = currentAudio.volume;
+                fadeInterval = setInterval(() => {
+                    if (volume > 0) {
+                        volume -= 0.05;
+                        currentAudio.volume = Math.max(volume, 0);
+                    } else {
+                        clearInterval(fadeInterval);
+                        currentAudio.pause();
+                        currentAudio.currentTime = 0;
+                        currentAudio = null;
+                    }
+                }, 100);
+            }
+
+            // Remove play button color when stopping
+            document.querySelectorAll(".play-btn").forEach(btn => btn.classList.remove("playing"));
+        }
+    }
+
+    document.querySelectorAll(".play-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            let soundFile = this.getAttribute("data-sound");
+            playSound(this, soundFile);
+        });
+    });
+
+    document.querySelectorAll(".stop-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            stopSound();
+        });
+    });
+
+    window.onload = function() {
+            sortPowers(); 
+        };
+    </script>
+</body>
+</html>

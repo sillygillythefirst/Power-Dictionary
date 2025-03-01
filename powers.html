@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Dictionary</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Power Dictionary</h1>
+        <hr id="edit1">
+        <nav>
+            <ul style="display: flex; list-style: none; padding: 0; justify-content: center;">
+                <li style="margin-right: 20px;"><a href="powers.html">Powers</a></li>
+                <li><a href="people.html">Users</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="music-button" id="musicButton">
+        <button id="playPauseButton">▶</button> <!-- Play button -->
+        <p style="width: 50px;">✦</p>
+    </div>
+    <div class="music-menu" id="musicMenu">
+        <h3 id="songTitle">Despite Everything, It's Still You. - NyxTheShield</h3>
+        <a id="songLink" href="https://youtu.be/Gy2OBm6VSV8" target="_blank">Song</a>
+        <progress id="progressBar" value="0" max="100"></progress> <!-- Replaced range with progress -->
+    </div>
+    <audio id="audio" src="songs/song1.mp3" loop autoplay></audio>
+    
+    
+    
+    
+    <section id="filter-bar">
+        <input type="text" id="search" placeholder="Filter powers...">
+        <select id="filter-category">
+            <option value="name">Name</option>
+            <option value="type">Type</option>
+            <option value="effects">Effect</option>
+            <option value="downsides">Down-Side</option>
+            <option value="difficulty">Difficulty</option>
+            <option value="rating">Rating</option>
+        </select>
+    </section>
+
+    <section id="info-list">
+        <div class="info-entry">
+            <h2 style="color: red;">INFORMATION</h2>
+            <hr>
+            <p style="color: rgb(204, 0, 255);"> [Usage]: </p>
+            <p style="color: rgb(237, 163, 255);">
+                Powers become second nature to users after some training, the power acts like a part of the user's body.
+                There is also a limit to how much the user can use their power. The more training the user does, the longer they can use their power.
+                ALL DOWN SIDES HAVE CONDITIONS TO HAPPEN. They aren't always given, those are just the effects of using power carelessly.
+            </p>
+            <hr>
+            <p style="color: rgb(204, 0, 255);"> [Training]: </p>
+            <p style="color: rgb(237, 163, 255);">
+                Powers have a large amount of potential, base powers with less rating can be improved easily. And powers that have a higher rating can also be improved, albeit very slowly.
+                Emotion plays an important part in how strong a user is with their powers. The more control the user has over their emotions the more powerful and controlled the power will be.
+                The less control a user has over their emotions, could be the difference between an outburst that could cause massive destruction and the user's death or power instability.
+            </p>
+            <hr>
+            <p style="color: rgb(204, 0, 255);"> [Limits]: </p>
+            <p style="color: rgb(237, 163, 255);">
+                A User can only have 2 powers or 2 combined powers <strong style="color: rgb(255, 109, 109);">(and one passive power)</strong>, these powers can be opposites but they won't be able to use them at the same time. Powers that aren't opposites will give said user the ability to combine them.
+                For example, if you want Modernity and Nature, since both of these are natural enemies, you can't use them in the same vessel. While Fire and Water can coexist, but using them at the same time will either damage the user or make said powers do less or no damage. Power combination will make those powers slightly less powerful but will allow for up to 4 powers not including passive powers!
+            </p>
+        </div>
+    </section>
+    
+    <main id="power-list">
+        <!-- Example power entries -->
+
+        <div class="power-entry">
+            <h2 style="color: red;">Fire</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 6</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 5</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> On Flames</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause burns.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Flames. (Can be shaped into any form. Can have a heat increase up to 800F°)</p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: blue;">Water</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 7</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 3</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Soaked</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause dehydration.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Water. (Can be shaped and sped up for more physical impact.)</p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: white;">Wind</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 5</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 6</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> None</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Wind. (The calmer the user is, the more increased wind strength, is invisible.)</p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: brown;">Earth</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 6</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 4</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Concusion, Internal Bleeding</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Earth. (Can be shaped and can be anchored to the ground. Can create living stone.)</p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: green;">Poison</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 4</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 2</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Sickness, Diseased, Poisoned, Weakened, Marked for Death</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause effects to apply to the user.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Poison/Toxic Gases and Liquids. (Can be used like wind and properties can be changed at will.)</p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: yellow;">Light</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 7</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 9</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Scorch, Blindness</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause muscle strain and mana sickness.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Light and Reflections. (Can be used to blind the enemy or use precision to burn targets, it is naturally the same as fire and can be strenghtened under light or daytime.)</p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: darkslategrey;">Darkness</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 7</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 9</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Confusion, Blindness, Fear</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause insanity, muscle strain, mana sickness.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Darkness and Shadows. (Can be used to blind the enemy or cause hallucinations, it is naturally the same as fire and can be strenghtened in the dark or at night.)</p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: aqua;">Ice</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 6</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 4</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Frozen, Stiff, Cold</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Always cold, prolonged use can freeze the user in place.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Ice. (Same as earth but can be split into finer shards and do some of the capabilities of water.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: aqua;">Blizzard</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 5</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 6</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Frozen, Stiff, Cold</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Always cold, prolonged use can give the user hypothermia.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of cold air and snowy weather. (Can be used like wind but is visible and will lower the temperature as an AOE attack.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: aquamarine;">Lighting</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 8</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 9</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Stunned, Burnt, Paralysis, Scorch</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause effects to be applied to the user.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Lighting and Natural Plasma. (Can be used like fire but more geometric, can electrify water and metal.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: #99da96;">Nature</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 7</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Stuck, Poisoned</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Mother Nature can command you.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Nature and Rejuvenation. Can take structures and objects back for Mother Nature. (Natural Enemy of Modernity.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: #da9696;">Modernity</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 7</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Stuck, Bleeding</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> The World can command you.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of man made structures and renewing anything into artificial/constructed objects. (Natural enemy of Nature.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: grey;">Metal</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 8</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 6</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Stuck, Bleeding</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Bone Crushing, Muscle Tearing</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of any metal inside the ground and any metal made from pure ore. (Can use it like earth with slower speeds and more lethal damage.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(127, 255, 195);">Technology</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 7</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 8</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Paralysis, Stunned, Bleeding, Scorch, Poisoned</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use without endurance training can cause Brain Death.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Can manipulate any tech made by humans, and can create anything tech related at will.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(255, 0, 98);">Plasma</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 8</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 9</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Scorch, Burnt</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause instantanious burns and combustion.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of the 4th state of matter Plasma. (Highly conductive and smoldering temperatures. Is not Affected by gravity.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: orange;">Magma</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 7</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 7</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Scorch, Burnt, Petrified</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause instantanious burns and petrification.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Can manipulate lava/magma at will. (Alike water but slower and always at smoldering temperatures. Can be cooled into basalt.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(133, 216, 140);  -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(90, 187, 66);">Time</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause ERASURE from the timeline.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Time on themselves or small objects. (Can rewrite time in a limited manner but does not affect other living organisms other than the user.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(235, 147, 247);">Space</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Magnetic, Massless, Burnt, Scorch, Flared</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause the user to be sucked up into oblivion and leaving behind a void where it used to be.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of Space Anomalies and Enigmas. (Can use forces like black holes and stars to induce burns and reverse and attract forces. Can also fly with anti-gravity.)</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(145, 60, 60); -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(243, 171, 171);">Change</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Random</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause the user to be sucked up into oblivion and leaving behind a void where it used to be, or changed into unknown forms.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of the change of all objects. This power is exhausting to use as it requires insane amounts of creativity. With the right use can be used to reshape a limited range of reality.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(104, 60, 145);  -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(224, 185, 222);">Chaos</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Random</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause the user to fall into madness, insanity, loss, complete destruction of self.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Manipulation of chaos, the pure form of chaos. The more chaotic a situation becomes the more powerful the ability becomes. Can be used to create light weapons that cause random effects to enemies or the world around the user.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(242, 227, 255);">Speed Mind</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 5</p>
+            <p><strong>Type:</strong> Mental</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause the user to fall into madness, insanity, loss, complete destruction of self.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">Once activated, the user’s mind can think at an exponentially faster rate, while also increasing the person’s IQ < 100x it’s original number.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(99, 0, 185);  -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(255, 162, 250);">Corruption</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 8</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Rot, Dematerialization, Shattering, Controlled, Inpurity</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Demonic forces will attempt to control you.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">The power to corrupt objects, once active by the user they can pick a type of “corruption”.
+                This can be rotting, material replacements, person overwrites, etc. Natural enemy of Purity.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(255, 253, 120); -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #ffee00;">Purity</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 8</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 7</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Clensed, Blessed, Enlightned, Divine Light</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Prolonged use can cause spirit break.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);">The ultimate healing power, can be used in many ways to heal, enlighten, and restore users. To use it the user must sacrifice shards of their spirit which can exhaust if used too much. Natural enemy of Corruption.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(255, 253, 120);">Absolute Strength</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 6</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 2</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> Internal Bleeding, Obliteration</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing, Limb Loss</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> Unmatched Strength is given to the user. The power of 1000 soldiers into 1.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(228, 227, 163);">Absolute Speed</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 4</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 1</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing, Limb Loss, Mental Instability</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> The user's speed is increased 100x. Can be used in many ways and pair well with speed type magic.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(226, 190, 70);">Explosion</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 6</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 7</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Burnt, Scorch, Obbliteration, Combustion</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing, Limb Loss, Burns, Muscle Strain</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> Can recreate any chemical/physical explosion type reactions. May it be pressure or chemical explosions, the user has complete control over any types.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(158, 247, 141);">Telekinesis</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Crushed, Obbliteration</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing, Muscle Strain, Mental Instability, Migranes</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> Can control an object as if a part of their body or make them move at will. This technique is somewhat tiring and can be used to move a person like a push but not constantly.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(228, 163, 225); -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(153, 65, 149);">Creation</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Overwhelmed, Stuck, Stunned, Disfigured</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing, Muscle Strain, Mental Instability, Migranes, Exhaustion</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> A technique that can create any small or medium-sized object at will. The more complex the object’s structure, the more it will tire the user’s mind.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(71, 26, 69); -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #ca96da;">Destruction</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Obbliteration, Loss, Discomfort, Voided</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> A fate worse than death. Eldritch beings enjoy your show.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> A technique that can create destroy or erase objects at will. This ability does not work on the living, but it can damage them if you are within 2 feet.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(245, 145, 120);">Warping</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 6</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Mental Instability, Migranes, Exhaustion, Oblivion</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> Specific manipulation of space, can be used to rapidly teleport the user to wherever they are looking or thinking of. It only works on places the user has been in or at before.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="background: -webkit-linear-gradient(#ff9100, #bb0909); background-clip: text; -webkit-text-fill-color: transparent;">Kinesis-Potency</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Magic</p>
+            <p style="color: green;"><strong>Effects:</strong> Multiple</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Death</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> Manipulation of all Kinesises in existence. Extremely powerful but extremely tiring. A user can kill themselves if used for more than 10 seconds every minute.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(119, 119, 119);">Flash Step</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 8</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 6</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> The user can use a technique that allows them to quickly push themselves to any direction with extreme force.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(255, 255, 255);">Dodging</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 4</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Exhaustion</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> The user has complete control over their balance at all times. Give them the ability to dodge any incoming attacks.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(255, 187, 187);">Flight</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Exhaustion</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> The user gains the ability to manipulate gravity using intense strenght in their overall body. Flying for long periods can cause damage.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(177, 252, 255);">Water Breathing</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 4</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 2</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Drowning</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> The user gains the ability to breathe underwater and move at insane speeds. Prolonged periods underwater can make your evolved lungs tire and drown you.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(0, 0, 0);">Reinforced Structure</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 8</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Shattering</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> The user gains almost full invulnerability from all attacks. Although, this can cause serious damage if too much damage is absorbed.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="color: rgb(255, 238, 0);">Light Speed</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> Physical</p>
+            <p style="color: green;"><strong>Effects:</strong> None</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> Muscle Tearing, Limb Loss, Mental Instability, Shattering</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> The user can move faster than light for short periods of time. This power makes the user's body be extremely fragile.</p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="background: -webkit-linear-gradient(#1eff00, #91ff8e); background-clip: text; -webkit-text-fill-color: transparent;">Ultimate Passivism</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p><strong>Type:</strong> All</p>
+            <p style="color: green;"><strong>Effects:</strong> No one can hurt the user.</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> User cannot hurt anyone.</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> A higher state of being. The user sees all violence as unjustifiable. This ascension allows the user to become invulnerable to attacks and allows them to be incapable of commiting violence. </p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="background: -webkit-linear-gradient(#ffbb00, #ff3838); background-clip: text; -webkit-text-fill-color: transparent;">Trial by Flames</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p style="background: -webkit-linear-gradient(#ff8800, #ffee00); background-clip: text; -webkit-text-fill-color: transparent;"><strong>Type:</strong> Mystical</p>
+            <p style="color: green;"><strong>Effects:</strong> Karma</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> None</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> A pure good passive power. Allows it's user to judge another user's character and classifies them by alignment. All evildoers will be weakened to the presence of this user. Flame attacks give 900% more damage and burns to evildoers. </p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="background: -webkit-linear-gradient(#8400ff, #72002f); background-clip: text; -webkit-text-fill-color: transparent;">Malevolence</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p style="background: -webkit-linear-gradient(#ff8800, #ffee00); background-clip: text; -webkit-text-fill-color: transparent;"><strong>Type:</strong> Mystical</p>
+            <p style="color: green;"><strong>Effects:</strong> Deterioation</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> None</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> A pure evil passive power. Allows it's user to do even more damage to virtous users. All virtous users will be weakened to the presence of this user. Betrayal and Slash attacks give 900% more damage and strikes the soul of the virtous. </p>
+            </p>
+        </div>
+
+        <div class="power-entry">
+            <h2 style="background: -webkit-linear-gradient(#ff0000, #410202); background-clip: text; -webkit-text-fill-color: transparent;">Anarchy</h2>
+            <p class="rating"><strong>Rating:</strong> ✦ 10</p>
+            <p class="difficulty"><strong>Difficulty:</strong> ⛛ 10</p>
+            <p style="background: -webkit-linear-gradient(#ff8800, #ffee00); background-clip: text; -webkit-text-fill-color: transparent;"><strong>Type:</strong> Mystical</p>
+            <p style="color: green;"><strong>Effects:</strong> Deterioation</p>
+            <p style="color: red;"><strong>Down-Sides:</strong> None</p>
+            <hr>
+            <p style="color: rgb(237, 163, 255);"> A pure neutral passive power. Allows it's user to do even more damage to all users deemed virtous or evil. A sense of fear is applied to all users in the presence of this, 900% more damage to all alignment users in certain conditions. </p>
+            </p>
+        </div>
+
+
+    </main>
+    
+    <script>
+        function sortPowers() {
+            let powerList = document.getElementById("power-list");
+            let powers = Array.from(document.querySelectorAll(".power-entry"));
+            
+            powers.sort((a, b) => {
+                let nameA = a.querySelector("h2").innerText.toLowerCase();
+                let nameB = b.querySelector("h2").innerText.toLowerCase();
+                return nameA.localeCompare(nameB);
+            });
+            
+            powerList.innerHTML = "";
+            powers.forEach(power => powerList.appendChild(power));
+        }
+
+        document.getElementById("search").addEventListener("input", filterPowers);
+        document.getElementById("filter-category").addEventListener("change", filterPowers);
+
+        function filterPowers() {
+            let query = document.getElementById("search").value.toLowerCase();
+            let category = document.getElementById("filter-category").value;
+            let powers = document.querySelectorAll(".power-entry");
+            
+            powers.forEach(power => {
+                let text = "";
+                switch (category) {
+                    case "name": text = power.querySelector("h2").innerText.toLowerCase(); break;
+                    case "type": text = power.querySelector("p:nth-of-type(3)").innerText.toLowerCase(); break;
+                    case "effects": text = power.querySelector("p:nth-of-type(4)").innerText.toLowerCase(); break;
+                    case "downsides": text = power.querySelector("p:nth-of-type(5)").innerText.toLowerCase(); break;
+                    case "difficulty": text = power.querySelector("p:nth-of-type(2)").innerText.toLowerCase(); break;
+                    case "rating": text = power.querySelector("p:nth-of-type(1)").innerText.toLowerCase(); break;
+                }
+                
+                power.style.display = text.includes(query) ? "block" : "none";
+            });
+        }
+
+        function updateDifficultyColor() {
+            // Get all the difficulty text elements
+            const difficulties = document.querySelectorAll('.difficulty');
+    
+            difficulties.forEach(difficulty => {
+            let valueText = difficulty.innerText.split("⛛")[1].trim(); // Get the difficulty value text
+            let value = parseInt(valueText); // Parse the number
+        
+            // Define the min and max values for difficulty (1 to 100)
+            const min = 1;
+            const max = 10;
+
+            // Calculate the percentage of the value between min and max
+            const percentage = (value - min) / (max - min);
+
+            // Use the percentage to determine red/green values
+            let red = Math.min(255, Math.floor(255 * percentage));  // More red as value increases
+            let green = Math.max(0, Math.floor(255 * (1 - percentage)));  // Less green as value increases
+
+            // Now color only the value (not the label "Difficulty")
+            difficulty.innerHTML = `<strong>Difficulty:</strong> ⛛ <span style="color: rgb(${red}, ${green}, 0);">${valueText}</span>`;
+            });
+        }
+
+        function updateRatingColor() {
+                // Get all the rating text elements
+                const ratings = document.querySelectorAll('.rating');
+    
+                ratings.forEach(rating => {
+                let valueText = rating.innerText.split("✦")[1].trim(); // Get the rating value text
+                let value = parseInt(valueText); // Parse the number
+        
+                // Define the min and max values for rating (1 to 100)
+                const min = 0;
+                const max = 10;
+
+                // Calculate the percentage of the value between min and max
+                const percentage = (value - min) / (max - min);
+
+                // Use the percentage to determine red/violet values
+                let red = Math.min(255, Math.floor(255 * (1 - percentage)));  // More red as value decreases
+                let blue = Math.min(255, Math.floor(255 * percentage));  // More blue as value increases
+                let green = 0; // Keep green at 0 for a red-violet gradient
+
+                // Now color only the value (not the label "Rating")
+                rating.innerHTML = `<strong>Rating:</strong> ✦ <span style="color: rgb(${red}, ${green}, ${blue});">${valueText}</span>`;
+            });
+        }
+
+        window.onload = function() {
+            sortPowers(); 
+            updateDifficultyColor();
+            updateRatingColor();
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const musicButton = document.getElementById("musicButton");
+    const playPauseButton = document.getElementById("playPauseButton");
+    const musicMenu = document.getElementById("musicMenu");
+    const audio = document.getElementById("audio");
+    const songTitle = document.getElementById("songTitle");
+    const progressBar = document.getElementById("progressBar");
+
+    let isPlaying = false;
+
+    // Show the music menu when button is clicked, but not on playPauseButton click
+    musicButton.addEventListener("click", (e) => {
+        if (e.target !== playPauseButton) { // Prevent menu toggle when clicking play button
+            musicMenu.style.display = musicMenu.style.display === "block" ? "none" : "block";
+        }
+    });
+
+    // Function to fade in the audio by gradually increasing the volume
+    function fadeInAudio(audioElement, duration) {
+        let volume = 0;
+        audioElement.volume = volume; // Start with volume at 0
+        audioElement.play();
+        const interval = setInterval(() => {
+            if (volume < 1) {
+                volume += 0.05; // Increase volume by a little
+                audioElement.volume = volume;
+            } else {
+                clearInterval(interval); // Stop once the volume reaches 1
+            }
+        }, duration / 20); // Adjust duration for fade speed
+    }
+
+    // Function to fade out the audio by gradually decreasing the volume
+    function fadeOutAudio(audioElement, duration) {
+        let volume = 1;
+        const interval = setInterval(() => {
+            if (volume > 0) {
+                volume -= 0.05; // Decrease volume by a little
+                audioElement.volume = volume;
+            } else {
+                clearInterval(interval); // Stop once the volume reaches 0
+                audioElement.pause(); // Pause audio after fade-out completes
+            }
+        }, duration / 20); // Adjust duration for fade speed
+    }
+
+    // Play the audio automatically with fade-in effect when the page loads
+    fadeInAudio(audio, 2000); // Fade in over 2 seconds
+    audio.addEventListener("canplay", () => {
+        isPlaying = true;
+        musicButton.classList.add("playing");
+        songTitle.classList.add("playing");
+    });
+
+    // Update progress bar as the song plays
+    audio.addEventListener("timeupdate", () => {
+        progressBar.value = (audio.currentTime / audio.duration) * 100;
+    });
+
+    // Change song position when user interacts with progress bar
+    progressBar.addEventListener("input", () => {
+        audio.currentTime = (progressBar.value / 100) * audio.duration;
+    });
+
+    // Play or pause the audio when playPauseButton is clicked
+    playPauseButton.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent the click event from reaching the musicButton
+
+        // Toggle fade effect when play button is clicked
+        if (isPlaying) {
+            fadeOutAudio(audio, 2000); // Fade out over 2 seconds
+            playPauseButton.textContent = "▶"; // Change button text to "Play"
+        } else {
+            fadeInAudio(audio, 2000); // Fade in over 2 seconds
+            playPauseButton.textContent = "▢"; // Change button text to "Pause"
+        }
+    });
+
+    // Track when the audio is playing or paused to update UI
+    audio.addEventListener("play", () => {
+        isPlaying = true;
+        musicButton.classList.add("playing");
+        songTitle.classList.add("playing");
+    });
+
+    audio.addEventListener("pause", () => {
+        isPlaying = false;
+        musicButton.classList.remove("playing");
+        songTitle.classList.remove("playing");
+    });
+});
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+* {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#edit1{
+    border-color: #9f60b9;
+    width:50%;
+}
+
+hr {
+    border-color: #9f60b9;
+}
+
+/* Header with background and border */
+header {
+    text-align: center;
+    background-color: #12001a;
+    border-bottom: 1px solid #9f60b9;
+    padding: 10px 0;
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Sticks it to the top */
+    left: 0; /* Ensure it's aligned to the left */
+    width: 100%; /* Full width */
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: rgb(169, 77, 255);
+}
+
+/* Navbar links styled as buttons */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #1d0038; /* Button background */
+    color: rgb(244, 157, 255); /* White text */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation for color and scale */
+}
+
+/* Hover effects for buttons */
+nav ul li a:hover {
+    background-color: #600086; /* Lighter background on hover */
+    transform: scale(1.1); /* Slightly enlarge the button */
+}
+
+/* Active button state (when clicked) */
+nav ul li a:active {
+    background-color: #8600bb; /* Even lighter color for active state */
+}
+
+#search {
+    padding-left: 5px;
+    width: 30%;
+    height: 40px;
+    font-size: large;
+    color: #9f60b9;
+    border-radius: 8px;
+    background-color: #000000;
+    border-color: #9f60b9;
+}
+
+::placeholder {
+    color: #472b53;
+}
+
+#filter-category {
+    width: 10%;
+    height: 40px;
+    font-size: large;
+    color: #9f60b9;
+    background-color: #000000;
+    border-radius: 8px;
+    border-color: #9f60b9;
+}
+
+/* Filter bar */
+#filter-bar {
+    position: fixed;
+    top: 140px; /* Moved down a bit more */
+    width: 100%;
+    background: #12001a;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 999; /* Less than header to avoid covering it */
+    border-bottom: 1px solid #9f60b9;
+}
+
+/* Main content */
+main {
+    margin-top: 20px; /* Adjusted to make space for both header and filter bar */
+    width: 80%;
+    max-width: 800px;
+}
+
+#info-list {
+    margin-top: 250px; /* Adjusted to make space for both header and filter bar */
+    width: 80%;
+    max-width: 800px;
+}
+
+#user-list {
+    margin-top: 250px; /* Adjusted to make space for both header and filter bar */
+    width: 80%;
+    max-width: 800px;
+}
+
+/* Power entry cards */
+.power-entry {
+    color: #9f60b9;
+    border: 2px solid #9f60b9;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    background-color: #0f060f;
+    border-radius: 8px;
+}
+
+#user-button {
+    background-color: #0f060f;
+    border-radius: 8px;
+    border: 2px solid #9f60b9;
+    width: 600px;
+    height: 120px;
+}
+
+#user-button:hover {
+    background-color: #200b20;
+    border-radius: 8px;
+    border: 2px solid #5d197a;
+    width: 640px;
+    height: 130px;
+}
+
+.user-entry {
+    color: #9f60b9;
+    border: 2px solid #9f60b9;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    background-color: #0f060f;
+    border-radius: 8px;
+}
+
+/* Hide user info by default */
+.user-entry .info {
+    display: block;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: height 0.5s ease, opacity 0.3s ease;
+}
+
+.user-entry .info.show {
+    display: block;
+    height: auto;
+    opacity: 1;
+}
+
+.info-entry {
+    color: #9f60b9;
+    border: 2px solid #9f60b9;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 25px;
+    background-color: #0f060f;
+    border-radius: 8px;
+}
+
+
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.audio-controls button, .audio-controls a {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.play-btn { background: green; color: white; }
+
+.play-btn:hover { background: rgb(18, 155, 18); color: rgb(189, 255, 187); }
+
+.stop-btn { background: red; color: white; }
+
+.stop-btn:hover { background: rgb(172, 0, 0); color: rgb(255, 174, 174); }
+
+.download-btn { background: blue; color: white; text-decoration: none; }
+
+.download-btn:hover { background: rgb(44, 44, 192); color: rgb(136, 148, 255); text-decoration: none; }
+
+.playing {
+    background-color: darkgreen;
+    color: gray; /* Play button turns green when playing */
+}
+.stopped {
+    background-color: darkred; /* Stop button changes color when clicked */
+    color: gray;
+}
+
+.theme-container {
+    background-color: #1d0038;
+    padding: 5px;
+    width: 200px;
+    margin-left: 275px;
+    border: 2px, solid, #9f60b9;
+    border-radius: 8px;
+}
+
+
+
+
+
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: -webkit-linear-gradient(#ff9100, #bb0909); 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    border: 1px solid #9f60b9; /* Fixed border syntax */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.5s ease-in-out; /* Add opacity transition */
+    opacity: 1; /* Default visible state */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-button p {
+    margin: 0; /* Remove default margin */
+    font-size: 40px; /* Adjust size if needed */
+    text-align: center;
+}
+
+.music-button.fade {
+    opacity: 0.3; /* Fade effect */
+}
+
+.music-button.playing {
+    animation: gradientMove 3s infinite linear;
+}
+
+#playPauseButton {
+    background: -webkit-linear-gradient(#af6bf0a6, #310133); 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    border-radius: 20px;
+    border: 1px, solid, #9f60b9;
+    margin: 2px;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.music-menu {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    background: -webkit-linear-gradient(#1a0022, #0d090f); 
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px, solid, #9f60b9;
+    display: none;
+}
+
+.music-menu h3 {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #ff0000);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.music-menu.playing h3 {
+    animation: gradientMove 3s infinite linear;
+}
+
+#progressBar {
+    width: 300px;
+    height: 8px; /* Adjust height for better appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgb(37, 7, 54);
+    border-radius: 5px;
+    outline: none;
+}
+
+#progressBar::-webkit-slider-runnable-track {
+    background: rgb(37, 7, 54);
+    height: 8px;
+    border-radius: 5px;
+}
+
+#progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: rgb(188, 88, 255);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -3px; /* Adjust to align with the track */
+}
+
+#progressBar::-moz-range-track {
+    background: rgb(37, 7, 54);
+    height: 8px;
+    border-radius: 5px;
+}
+
+#progressBar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: rgb(188, 88, 255);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#progressBar::-ms-track {
+    background: rgb(37, 7, 54);
+    height: 8px;
+    border-radius: 5px;
+    border-color: transparent; /* Fix Edge's default border */
+    color: transparent;
+}
+
+#progressBar::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    background: rgb(188, 88, 255);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#muteButton, #songLink {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    border: none;
+    background: white;
+    border-radius: 5px;
+}
+
+#songLink {
+    background-color: #000000;
+    width: 100px;
+    height: 100px;
+}
