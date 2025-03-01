@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilly's Power Dictionary</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Main Information</h1>
+        <hr id="edit1">
+        <nav>
+            <ul style="display: flex; list-style: none; padding: 0; justify-content: center;">
+                <li><a href="index.html">Main</a></li>
+                <li><a href="powers.html">Powers</a></li>
+                <li><a href="people.html">Users</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="music-button" id="musicButton">
+        <button id="playPauseButton">▶</button> <!-- Play button -->
+        <p style="width: 50px;">✦</p>
+    </div>
+    <div class="music-menu" id="musicMenu">
+        <h3 id="songTitle">Despite Everything, It's Still You. - NyxTheShield</h3>
+        <a id="songLink" href="https://youtu.be/Gy2OBm6VSV8" target="_blank">Song</a>
+        <progress id="progressBar" value="0" max="100"></progress> <!-- Replaced range with progress -->
+    </div>
+    <audio id="audio" src="songs/song1.mp3" loop></audio>
+
+    <script>
+           document.addEventListener("DOMContentLoaded", () => {
+    const musicButton = document.getElementById("musicButton");
+    const playPauseButton = document.getElementById("playPauseButton");
+    const musicMenu = document.getElementById("musicMenu");
+    const audio = document.getElementById("audio");
+    const songTitle = document.getElementById("songTitle");
+    const progressBar = document.getElementById("progressBar");
+
+    let isPlaying = false;
+
+    // Show the music menu when button is clicked, but not on playPauseButton click
+    musicButton.addEventListener("click", (e) => {
+        if (e.target !== playPauseButton) { // Prevent menu toggle when clicking play button
+            musicMenu.style.display = musicMenu.style.display === "block" ? "none" : "block";
+        }
+    });
+
+    // Function to fade in the audio by gradually increasing the volume
+    function fadeInAudio(audioElement, duration) {
+        let volume = 0;
+        audioElement.volume = volume; // Start with volume at 0
+        audioElement.play();
+        const interval = setInterval(() => {
+            if (volume < 1) {
+                volume += 0.05; // Increase volume by a little
+                audioElement.volume = volume;
+            } else {
+                clearInterval(interval); // Stop once the volume reaches 1
+            }
+        }, duration / 20); // Adjust duration for fade speed
+    }
+
+    // Function to fade out the audio by gradually decreasing the volume
+    function fadeOutAudio(audioElement, duration) {
+        let volume = 1;
+        const interval = setInterval(() => {
+            if (volume > 0) {
+                volume -= 0.05; // Decrease volume by a little
+                audioElement.volume = volume;
+            } else {
+                clearInterval(interval); // Stop once the volume reaches 0
+                audioElement.pause(); // Pause audio after fade-out completes
+            }
+        }, duration / 20); // Adjust duration for fade speed
+    }
+
+    // Play the audio automatically with fade-in effect when the page loads
+    fadeInAudio(audio, 2000); // Fade in over 2 seconds
+    audio.addEventListener("canplay", () => {
+        isPlaying = true;
+        musicButton.classList.add("playing");
+        songTitle.classList.add("playing");
+    });
+
+    // Update progress bar as the song plays
+    audio.addEventListener("timeupdate", () => {
+        progressBar.value = (audio.currentTime / audio.duration) * 100;
+    });
+
+    // Change song position when user interacts with progress bar
+    progressBar.addEventListener("input", () => {
+        audio.currentTime = (progressBar.value / 100) * audio.duration;
+    });
+
+    // Play or pause the audio when playPauseButton is clicked
+    playPauseButton.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent the click event from reaching the musicButton
+
+        // Toggle fade effect when play button is clicked
+        if (isPlaying) {
+            fadeOutAudio(audio, 2000); // Fade out over 2 seconds
+            playPauseButton.textContent = "▶"; // Change button text to "Play"
+        } else {
+            fadeInAudio(audio, 2000); // Fade in over 2 seconds
+            playPauseButton.textContent = "▢"; // Change button text to "Pause"
+        }
+    });
+
+    // Track when the audio is playing or paused to update UI
+    audio.addEventListener("play", () => {
+        isPlaying = true;
+        musicButton.classList.add("playing");
+        songTitle.classList.add("playing");
+    });
+
+    audio.addEventListener("pause", () => {
+        isPlaying = false;
+        musicButton.classList.remove("playing");
+        songTitle.classList.remove("playing");
+    });
+});
+    </script>
+</body>
+</html>
